@@ -1,4 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Proxima+Nova");
+@import url("https://fonts.cdnfonts.com/css/futura-pt");
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
 
 * {
   margin: 0;
@@ -10,10 +20,69 @@
 /* Nav - Started */
 
 .forBackground {
-  width: 100vw;
+  width: 100%;
   height: 80px;
   background: rgba(21, 24, 28, 0.7);
   backdrop-filter: blur(1px);
+}
+
+[data-theme="light"] {
+  --backgound: #f6f6f6;
+  --backgound-overlay: rgba(255, 255, 255, 0.4);
+  --font-colour: #202020;
+}
+
+[data-theme="dark"] {
+  --backgound: #202020;
+  --backgound-overlay: rgba(32, 32, 32, 0.8);
+  --font-colour: #ecbf1d;
+}
+html {
+  background: var(--backgound);
+}
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 93px;
+  height: 40px;
+  background: #151a1e;
+  border: 1px solid #aaaaaa;
+  border-radius: 40px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  background: #5454d4;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: var(--font-colour);
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 65px;
 }
 
 .nav {
@@ -44,22 +113,26 @@
 /* Header */
 
 header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   background: url(../assets/bg\ 1.svg);
-  height: 820px;
+  height: 900px;
   color: white;
 }
 
-header .left-side {
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.header .left-side {
   width: 695px;
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-header .left-side h1 {
+.header .left-side h1 {
   font-family: "Proxima Nova";
   font-style: normal;
   font-weight: 600;
@@ -67,7 +140,7 @@ header .left-side h1 {
   line-height: 58px;
 }
 
-header .left-side p {
+.header .left-side p {
   font-family: "Proxima Nova";
   font-style: normal;
   font-weight: 400;
@@ -75,7 +148,7 @@ header .left-side p {
   line-height: 22px;
 }
 
-header .left-side span {
+.header .left-side span {
   position: relative;
   width: 70px;
   height: 70px;
@@ -84,9 +157,11 @@ header .left-side span {
   top: 190px;
   z-index: 9;
   background: #6911ad;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
 }
 
-header .left-side a {
+.header .left-side a {
   font-family: "Proxima Nova";
   font-style: normal;
   font-weight: 700;
@@ -95,12 +170,100 @@ header .left-side a {
   z-index: 999999;
   padding-top: 212px;
   position: relative;
-  top: 155px;
-  left: 40px;
+  top: 145px;
+  left: 50px;
   color: #fff;
 }
 
-header .left-side .div a:hover .left-side .div span {
+.header .left-side .div span:hover {
   width: 196px;
   height: 70px;
+  border-radius: 141px;
+}
+
+/* All */
+
+.all {
+  background: url(../assets/bg\ 3.svg), #1e1e1e;
+  color: white;
+}
+
+/* About Company */
+
+.about-company {
+  align-items: center;
+  padding-top: 120px;
+  justify-content: space-around;
+  padding-bottom: 95px;
+}
+
+.about-company .left-side {
+  width: 569px;
+}
+
+.about-company .left-side h2 {
+  font-family: "Futura PT", sans-serif;
+  padding-bottom: 20px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 64px;
+}
+
+.about-company .left-side p {
+  font-family: "Futura PT", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.about-company .right-side {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Futura PT", sans-serif;
+}
+
+.about-company .right-side .nums {
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+}
+
+.about-company .right-side .nums .num {
+  gap: 184px;
+}
+
+.about-company .right-side .nums .num .flex-col {
+  align-items: center;
+  justify-content: center;
+}
+
+.about-company .right-side .nums .num .flex-col h2 {
+  font-family: "Futura PT" sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 100%;
+  background: linear-gradient(
+    109.09deg,
+    rgba(0, 40, 248, 0.89) 0%,
+    #6911ad 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  padding-bottom: 12px;
+}
+
+.about-company .right-side .nums .num .flex-col p{
+    font-family: 'Futura PT' sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 26px;
+text-align: center;
 }

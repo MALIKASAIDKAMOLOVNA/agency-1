@@ -1,120 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./Styles/style.css" />
-  <link rel="stylesheet" href="https://fonts.google.com/?query=proxima+nova">
-  <title>Agency Website design</title>
-</head>
-
-<body>
-
-  <!-- for Nav Tag -->
-  <div class="forBackground">
-    <nav class="nav container" id="container">
-      <!-- Logo -->
-      <div class="logo">Logo</div>
-
-      <!-- Main links -->
-      <div class="mainLinks">
-        <ul>
-          <li>О компании</li>
-          <li>Портфолио</li>
-          <li>Услуги</li>
-          <li>Контакты</li>
-        </ul>
-      </div>
-
-      <!-- Dark-Light Mode on/off -->
-      <div class="drToggle"></div>
-
-      <!-- Contacts -->
-      <div class="contactUs">
-        <!-- tel/gmail -->
-        <div>
-          <h2>+998 90 777-77-77</h2>
-          <span>chotatam@gmail.com</span>
-        </div>
-
-        <!-- Tell/Call button -->
-        <div>
-          <a href="tel:+998999999999">
-            <button type="submit">Заказать звонок</button>
-          </a>
-        </div>
-
-        <!-- For mobile -->
-        <a href="tel:+998999999999">
-          <button type="submit">(99) 999 9999</button>
-        </a>
-      </div>
-    </nav>
-  </div>
-
-  <!-- Header -->
-
-
-  <header>
-    <div class="left-side">
-      <h1>Biz veb-saytlar, ilovalarni <br> ishlab chiqamiz</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br>
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <br> ad
-        minim veniam.
-      </p>
-      <div class="div">
-        <span></span>
-        <a href="/portfolio">
-          Портфолио
-        </a>
-      </div>
-    </div>
-    <div class="right-side">
-      <canvas id="cobe" style="width: 500px; height: 500px;" width="1000" height="1000"></canvas>
-
-      <script type="module">
-        import createGlobe from "https://cdn.skypack.dev/cobe";
-
-        let phi = 0;
-        let canvas = document.getElementById("cobe");
-
-        const globe = createGlobe(canvas, {
-          devicePixelRatio: 2,
-          width: 1000,
-          height: 1000,
-          phi: 0,
-          theta: 0,
-          dark: 0,
-          diffuse: 1.2,
-          scale: 1,
-          mapSamples: 16000,
-          mapBrightness: 6,
-          baseColor: [1, 1, 1],
-          markerColor: [1, 0.5, 1],
-          glowColor: [1, 1, 1],
-          offset: [0, 0],
-          markers: [
-            { location: [37.7595, -122.4367], size: 0.03 },
-            { location: [40.7128, -74.006], size: 0.1 }
-          ],
-          onRender: (state) => {
-            // Called on every animation frame.
-            // `state` will be an empty object, return updated params.
-            state.phi = phi;
-            phi += 0.01;
-          }
-        });
-      </script>
-    </div>
-  </header>
+<html lang="en" data-theme="light">
   <head>
-    hellowwwoooo
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.google.com/?query=proxima+nova"
+    />
+    <title>Agency Website design</title>
   </head>
 
-  <script src="./JS/script.js"></script>
-</body>
+  <body>
+    <header>
+      <!-- for Nav Tag -->
+      <div class="forBackground">
+        <nav class="nav container" id="container">
+          <!-- Logo -->
+          <div class="logo"><a href="./index.html">Logo</a></div>
 
+          <!-- Main links -->
+          <div class="mainLinks">
+            <ul>
+              <li>О компании</li>
+              <li>Портфолио</li>
+              <li>Услуги</li>
+              <li>Контакты</li>
+            </ul>
+          </div>
+
+          <!-- Dark-Light Mode on/off -->
+          <input type="checkbox" id="darkMood" onchange="changeTheme()" /><label
+            for="darkMood"
+            >Toggle Night Mode</label
+          >
+
+          <!-- Contacts -->
+          <div class="contactUs">
+            <!-- tel/gmail -->
+            <div>
+              <h2>+998 90 777-77-77</h2>
+              <span>chotatam@gmail.com</span>
+            </div>
+
+            <!-- Tell/Call button -->
+            <div>
+              <a href="tel:+998999999999">
+                <button type="submit">Заказать звонок</button>
+              </a>
+            </div>
+
+            <!-- For mobile -->
+            <a href="tel:+998999999999">
+              <button type="submit">(99) 999 9999</button>
+            </a>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Header -->
+      <div class="header">
+        <div class="left-side">
+          <h1>
+            Biz veb-saytlar, ilovalarni <br />
+            ishlab chiqamiz
+          </h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            <br />
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            <br />
+            ad minim veniam.
+          </p>
+          <div class="div">
+            <span></span>
+            <a href="/portfolio"> Портфолио </a>
+          </div>
+        </div>
+        <div class="right-side">
+          <canvas
+            id="cobe"
+            style="width: 500px; height: 500px"
+            width="1000"
+            height="1000"
+          ></canvas>
+
+          <script type="module">
+            import createGlobe from "https://cdn.skypack.dev/cobe";
+
+            let phi = 0;
+            let canvas = document.getElementById("cobe");
+
+            const globe = createGlobe(canvas, {
+              devicePixelRatio: 2,
+              width: 1000,
+              height: 1000,
+              phi: 0,
+              theta: 0,
+              dark: 0,
+              diffuse: 1.2,
+              scale: 1,
+              mapSamples: 16000,
+              mapBrightness: 6,
+              baseColor: [1, 1, 1],
+              markerColor: [1, 0.5, 1],
+              glowColor: [1, 1, 1],
+              offset: [0, 0],
+              markers: [
+                { location: [37.7595, -122.4367], size: 0.03 },
+                { location: [40.7128, -74.006], size: 0.1 },
+              ],
+              onRender: (state) => {
+                // Called on every animation frame.
+                // `state` will be an empty object, return updated params.
+                state.phi = phi;
+                phi += 0.01;
+              },
+            });
+          </script>
+        </div>
+      </div>
+    </header>
+    <div class="all">
+      <section class="about-company flex">
+        <div class="left-side">
+          <h2>Kompaniya haqida</h2>
+          <p>
+            Agentlik-bu mijozlarga o'z bizneslari uchun sifatli va innovatsion
+            echimlarni taqdim etish maqsadida tashkil etilgan veb-agentlik.
+            Bizning jamoamiz mijozlarga moslashtirilgan va sifatli mahsulotni
+            taklif qilish uchun yaqin hamkorlikda ishlaydigan tajribali
+            veb-dizayn, ishlab chiqish va marketing mutaxassislaridan iborat.
+            <br />
+            <br />
+            Biz veb-dizayn, veb-sayt va mobil ilovalarni ishlab chiqish, SEO
+            optimallashtirish, kontent yaratish va reklama kampaniyalarini o'z
+            ichiga olgan keng ko'lamli xizmatlarni taklif etamiz. Biz eng yangi
+            texnologiyalar va innovatsion usullardan foydalangan holda brendni
+            rivojlantirish va sotishni ko'paytirish bilan shug'ullanamiz.
+          </p>
+        </div>
+        <div class="right-side">
+          <div class="flex-col nums">
+            <div class="flex num">
+              <div class="flex-col">
+                <h2>20+</h2>
+                <p>Проектов запустил</p>
+              </div>
+              <div class="flex-col">
+                <h2>4 года</h2>
+                <p>Опыта разработки</p>
+              </div>
+            </div>
+            <div class="flex num">
+              <div class="flex-col">
+                <h2>12+</h2>
+                <p>Профессионалов</p>
+              </div>
+              <div class="flex-col">
+                <h2>4 года</h2>
+                <p>Опыта разработки</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="our-adventages">
+        <h2>Bizning afzalliklarimiz</h2>
+        <div class="cards flex">
+            <div class="card"></div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./JS/script.js"></script>
+  </body>
 </html>
